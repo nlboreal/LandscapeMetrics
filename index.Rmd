@@ -1,0 +1,15 @@
+--- 
+title: "Biology 4405 - Landscape Metrics"
+author: "Yolanda Wiersma, Memorial University"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook #bookdown::html_document2
+documentclass: book
+link-citations: false
+git-hub-repo: nlboreal/LandscapeMetrics
+description: "Landscape Metrics for Landscape Ecology"
+---
+
+# This is a manual for Biology 4405 students
+
+You will gain experience using R to calculate landscape metrics.

@@ -1,0 +1,35 @@
+# Using Landscape-level metrics {#landscapemetrics}
+
+```{r, echo=FALSE, message=FALSE, warning = FALSE}
+library(landscapemetrics)
+library(raster)
+augusta <- terra::rast(landscapemetrics::landscape)
+```
+
+
+Landscape-level metrics report one value for the entire landscape. As with class-level metrics you can summarize some of the metrics at the landscape scale by mean, standard deviation and coefficient of variation. For example 
+`lsm_l_area_mn(auguasta)` gives the mean area of ALL the patches in the landscape (thus the `class` and '`id` fields in the table will show `NA`).
+
+Metrics specific to the landscape level include the `joinent` metric. It measures complexity of landscape pattern. Read it about it and try it out! This is one where the default neighbourhood rule is 4, not 8.
+
+`lsm_l_joinnet(augusta)`
+
+Another group of metrics unique to the landscape-level are diversity metrics. These are akin to species diversity measures for communities, but instead count cover types (classes) as equivalent to species.
+
+Read the help files and compare the output for the following functions:
+
+`lsm_l_pr()`
+`lsm_l_prd()`
+`lsm_l_rpr()`
+`lsm_l_shdi()`
+`lsm_l_shei()`
+`lsm_l_sidi()`
+`lsm_l_siei()`
+
+Finally you can quantify the total core and total edge area in your landscape.
+
+
+# Final words
+
+Hopefully this exercise has led you to appreciate how many metrics are out there and how quickly you can generate a LOT of data to quantitatively describe a landscape. The coding part that you just learned is the easy part. The hard part, if you want to apply this in the real world, is figuring out which metric(s) is most approrpiate and meaningful for your landscape or project. Have fun!
+

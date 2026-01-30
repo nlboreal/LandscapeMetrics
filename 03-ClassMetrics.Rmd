@@ -1,0 +1,32 @@
+# Using class-level metrics {#classmetrics}
+
+```{r, echo=FALSE, message=FALSE, warning= FALSE}
+library(landscapemetrics)
+library(raster)
+augusta <- terra::rast(landscapemetrics::landscape)
+```
+
+As outlined in the introduction, class-level metrics report the configuration or pattern at the level of the class (landcover). Our Augusta map only has 3 landcover classes (here labelled as 1, 2, 3; we can imagine them to be forest, urban and agriculture), but it can handle many many more classes if needed. The larger your map and the more classes there are, the longer the computing time, but it can be done!
+
+The syntax is the same as the patch level metrics, except now we replace the `p` with a `c`. For some of the metrics that we measured at the patch-level (e.g., area, core area index, Euclidean nearest neighbour, fractal dimension) can also be computed at the class level, but now we have a choice to report the mean (`mn`), standard deviation (`sd`) or coefficient of variation (`cv`) of the metric across all patches in the class. Try the following out:
+
+
+`lsm_c_area_mn(augusta)` Displays mean area of all patches by class
+`lsm_c_area_sd(augusta)` Displays standard deviation of area of all patches by class
+`lsm_c_enn_mn(augusta)`  Displays mean Euclidean nearest neighbour distance of all patches by class
+`lsm_c_frac_cv(augusta)` Displays coefficient of variation of fractal dimension of all patches by class
+
+
+As you typed the code, hopefully you notice by the autofill how easy it is to generate mean, sd, and cv of the metrics you calculated at the patch level. If you are not sure what these metrics are doing, check the documentation using `help(<function_name>)`.
+
+There are also a few class-level metrics specific to the this level (i.e., not summarized across patches). Look up the documentation and run the following:
+
+`lsm_c_ai`
+`lsm_c_ca`
+`lsm_c_clumpy`
+`lsm_c_cohesion`
+`lsm_c_pladj`
+
+
+Last we'll move on to landscape-level metrics. 
+
